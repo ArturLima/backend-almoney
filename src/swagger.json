@@ -1,0 +1,133 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "ALMoney Documentation",
+    "description": "This is an API expense",
+    "version": "1.0.0",
+    "contact": {
+      "name": "Artur Lima",
+      "email": "arturpeixotoo@gmail.com"
+    }
+  },
+  "paths": {
+    "/create": {
+      "post": {
+        "tags": ["Expense"],
+        "summary": "Create an expense",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "tittle": {
+                    "type": "string"
+                  },
+                  "value": {
+                    "type": "decimal"
+                  },
+                  "category": {
+                    "type": "string"
+                  },
+                  "type": {
+                    "type": "string"
+                  },
+                  "example": {
+                    "title": "Tittle sample",
+                    "value": 100,
+                    "category": "category sample",
+                    "type": "out or entry"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "response": {
+          "201": {
+            "description": "Created"
+          }
+        }
+      }
+    },
+    "/list": {
+      "get": {
+        "tags": ["Expense"],
+        "summary": "List All expenses",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "tittle": {
+                        "type": "string"
+                      },
+                      "value": {
+                        "type": "number"
+                      },
+                      "category": {
+                        "type": "string"
+                      },
+                      "type": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/delete/{id}": {
+      "delete": {
+        "tags": ["Expense"],
+        "summary": "Delete a expense",
+        "description": "Delete a expense",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Expense id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "tittle": {
+                      "type": "string"
+                    },
+                    "value": {
+                      "type": "number"
+                    },
+                    "category": {
+                      "type": "string"
+                    },
+                    "type": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
