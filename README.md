@@ -1,7 +1,7 @@
 ## backend-almoney
 
 
--This is a backand of front application [almoney](https://github.com/ArturLima/al-money)
+-This is a backend of front application [almoney](https://github.com/ArturLima/al-money)
 
 
 ## App
